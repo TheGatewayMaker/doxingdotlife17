@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Search, ChevronDown } from "lucide-react";
+import { Search } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
