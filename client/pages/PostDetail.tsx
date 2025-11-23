@@ -112,7 +112,9 @@ export default function PostDetail() {
               <div className="w-full h-96 bg-muted flex items-center justify-center">
                 <div className="text-center">
                   <div className="text-7xl mb-4">🖼️</div>
-                  <p className="text-muted-foreground text-lg">Thumbnail unavailable</p>
+                  <p className="text-muted-foreground text-lg">
+                    Thumbnail unavailable
+                  </p>
                 </div>
               </div>
             )}

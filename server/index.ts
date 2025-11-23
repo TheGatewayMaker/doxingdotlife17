@@ -18,12 +18,14 @@ export function createServer() {
   const app = express();
 
   // Middleware
-  app.use(cors({
-    origin: '*',
-    methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: false,
-  }));
+  app.use(
+    cors({
+      origin: "*",
+      methods: ["GET", "POST", "OPTIONS"],
+      allowedHeaders: ["Content-Type", "Authorization"],
+      credentials: false,
+    }),
+  );
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
@@ -100,7 +102,9 @@ export function createServer() {
         const buffer = await response.arrayBuffer();
         res.send(Buffer.from(buffer));
       } else {
-        res.status(response.status || 500).json({ error: "Failed to fetch media" });
+        res
+          .status(response.status || 500)
+          .json({ error: "Failed to fetch media" });
       }
     } catch (err) {
       console.error("Media proxy error:", err);

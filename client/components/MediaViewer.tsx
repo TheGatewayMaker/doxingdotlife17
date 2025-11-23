@@ -25,7 +25,7 @@ export default function MediaViewer({
   const [activeIndex, setActiveIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [imageLoadError, setImageLoadError] = useState<boolean[]>(
-    new Array(mediaFiles.length).fill(false)
+    new Array(mediaFiles.length).fill(false),
   );
   const videoRef = useRef<HTMLVideoElement>(null);
 

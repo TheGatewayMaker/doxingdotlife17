@@ -630,13 +630,18 @@ export default function Index() {
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                           onError={(e) => {
                             const img = e.target as HTMLImageElement;
-                            img.style.display = 'none';
+                            img.style.display = "none";
                             const parent = img.parentElement;
-                            if (parent && !parent.querySelector('[data-error-shown]')) {
-                              const errorDiv = document.createElement('div');
-                              errorDiv.setAttribute('data-error-shown', 'true');
-                              errorDiv.className = 'text-center text-muted-foreground flex flex-col items-center justify-center gap-2';
-                              errorDiv.innerHTML = '<div class="text-3xl">🖼️</div><div class="text-xs">Image unavailable</div>';
+                            if (
+                              parent &&
+                              !parent.querySelector("[data-error-shown]")
+                            ) {
+                              const errorDiv = document.createElement("div");
+                              errorDiv.setAttribute("data-error-shown", "true");
+                              errorDiv.className =
+                                "text-center text-muted-foreground flex flex-col items-center justify-center gap-2";
+                              errorDiv.innerHTML =
+                                '<div class="text-3xl">🖼️</div><div class="text-xs">Image unavailable</div>';
                               parent.appendChild(errorDiv);
                             }
                           }}
