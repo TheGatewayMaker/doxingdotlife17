@@ -20,9 +20,7 @@ const TOKEN_EXPIRY_MS = 24 * 60 * 60 * 1000;
 
 // Generate a secure random token
 const generateToken = (): string => {
-  return Array.from(crypto.getRandomValues(new Uint8Array(32)))
-    .map((b) => b.toString(16).padStart(2, "0"))
-    .join("");
+  return randomBytes(32).toString("hex");
 };
 
 export const handleLogin: RequestHandler = async (req, res) => {
