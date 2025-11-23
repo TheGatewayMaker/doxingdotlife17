@@ -363,11 +363,11 @@ export default function AdminPanel() {
         </div>
 
         {/* Posts Management Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="mb-10 sm:mb-12 animate-fadeIn">
             {isLoadingPosts ? (
               <>
-                <h2 className="text-5xl md:text-6xl font-black mb-3 flex items-center gap-3">
+                <h2 className="text-5xl md:text-6xl font-black mb-3 mt-0 flex items-center gap-3">
                   <span className="inline-block animate-spin">
                     <div className="w-10 h-10 border-3 border-muted border-t-accent rounded-full"></div>
                   </span>
@@ -390,10 +390,10 @@ export default function AdminPanel() {
               </>
             ) : (
               <>
-                <h2 className="text-5xl md:text-6xl font-black">
+                <h2 className="text-5xl md:text-6xl font-black mb-3">
                   Manage Posts
                 </h2>
-                <p className="text-muted-foreground mt-3">
+                <p className="text-muted-foreground">
                   Showing {displayedPosts.length} of {filteredPosts.length}{" "}
                   posts
                 </p>

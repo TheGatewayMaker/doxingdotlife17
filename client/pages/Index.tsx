@@ -617,7 +617,7 @@ export default function Index() {
         </div>
 
         {/* Hot & Recent Posts */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="mb-10 sm:mb-12 animate-fadeIn">
             {isLoadingPosts ? (
               <>
