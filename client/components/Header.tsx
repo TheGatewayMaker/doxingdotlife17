@@ -13,10 +13,14 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         <Link
           to="/"
-          className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+          className="flex items-center gap-3 hover:opacity-90 transition-opacity"
         >
-          <div className="w-10 h-10 bg-gradient-to-br from-accent to-accent/80 rounded-lg flex items-center justify-center shadow-md">
-            <SearchIcon className="text-accent-foreground w-5 h-5" />
+          <div className="w-10 h-10 rounded-full overflow-hidden shadow-md flex-shrink-0">
+            <img
+              src="https://i.ibb.co/rG8yDddq/doxingdotlifelogogeniune888175141.png"
+              alt="Doxing Dot Life Logo"
+              className="w-full h-full object-cover"
+            />
           </div>
           <span className="font-black text-lg text-foreground hidden sm:inline">
             Doxing Dot Life
