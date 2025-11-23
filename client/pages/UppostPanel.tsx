@@ -36,19 +36,43 @@ export default function UppostPanel() {
   const [uploadMessage, setUploadMessage] = useState("");
   const [uploadError, setUploadError] = useState("");
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoginError("");
+    setIsLoggingIn(true);
 
-    if (loginUsername === VALID_USERNAME && loginPassword === VALID_PASSWORD) {
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: loginUsername,
+          password: loginPassword,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setLoginError(data.error || "Login failed");
+        setIsLoggingIn(false);
+        return;
+      }
+
       setAuth({
         isAuthenticated: true,
         username: loginUsername,
+        token: data.token,
       });
       setLoginUsername("");
       setLoginPassword("");
-    } else {
-      setLoginError("Invalid username or password");
+    } catch (error) {
+      setLoginError("Network error. Please try again.");
+      console.error("Login error:", error);
+    } finally {
+      setIsLoggingIn(false);
     }
   };
 
