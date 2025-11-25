@@ -18,16 +18,33 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// Check if Firebase config is valid
+const isFirebaseConfigValid = Object.values(firebaseConfig).every(
+  (val) => val && val !== undefined && val !== ""
+);
 
-// Initialize Firebase Auth
-export const auth: Auth = getAuth(app);
+let app: any;
+let auth: Auth | null = null;
+let googleProvider: GoogleAuthProvider | null = null;
 
-// Initialize Google Auth Provider
-const googleProvider = new GoogleAuthProvider();
-googleProvider.addScope("profile");
-googleProvider.addScope("email");
+if (isFirebaseConfigValid) {
+  try {
+    app = initializeApp(firebaseConfig);
+    auth = getAuth(app);
+
+    googleProvider = new GoogleAuthProvider();
+    googleProvider.addScope("profile");
+    googleProvider.addScope("email");
+  } catch (error) {
+    console.error("Firebase initialization error:", error);
+    auth = null;
+    googleProvider = null;
+  }
+} else {
+  console.warn(
+    "Firebase configuration is incomplete. Some features will be disabled. Please set all VITE_FIREBASE_* environment variables."
+  );
+}
 
 // Authorized email domains/accounts
 const AUTHORIZED_EMAILS = import.meta.env.VITE_AUTHORIZED_EMAILS
