@@ -5,8 +5,14 @@
 
 
 [functions]
-  external_node_modules = ["express"]
   node_bundler = "esbuild"
+  memory = 3008
+  timeout = 60
+
+[[function]]
+  name = "api"
+  memory = 3008
+  timeout = 60
   
 [[redirects]]
   force = true
